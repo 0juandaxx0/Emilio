@@ -1,0 +1,374 @@
+/* =======================
+   ESTILO GENERAL
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui;
+}
+
+body {
+  background: #ede9fe; /* Lavanda claro elegante */
+  color: #372f53; /* Morado oscuro legible */
+}
+
+/* =======================
+  HEADER (MODIFICADO)
+========================= */
+
+.header-bisu {
+ background: linear-gradient(190deg, #4c1d95, #fb4c9b); /* Morado → Fucsia */
+ padding: 1.6rem 1rem;
+ box-shadow: 0 10px 7px rgba(114, 44, 220, 0.325);
+}
+
+.header-inner {
+ /* 🌟 CAMBIO CLAVE 1: Usar un valor fijo grande o 90% para darle espacio. */
+ max-width: 1100px; 
+ margin: auto;
+ display: flex;
+ align-items: center;
+ /* Agregamos este justify para empujar las redes a la derecha */
+ justify-content: space-between; 
+ gap: 20px;
+}
+
+.logo-gato {
+  width: 130px;
+  height: auto;
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+.header-bisu h1 {
+  font-size: 2rem;
+  color: #fef6ff; /* casi blanco con tinte lila */
+  margin: 0;
+  line-height: 1.2;
+}
+
+.header-bisu p {
+  color: #f3e8ff; /* lila muy suave */
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* =======================
+   REDES SOCIALES HEADER
+========================= */
+
+.redes-sociales {
+  margin-left: auto;            /* Empuja las redes a la derecha */
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.icon-red {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: radial-gradient(circle at 30% 20%, #be95f7, #5015a7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 10px rgb(243, 116, 250);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+}
+
+.icon-red img {
+  width: 20px;
+  height: 20px;
+  filter: invert(1) brightness(1.3); /* los deja blancos sobre el círculo morado/fucsia */
+}
+
+.icon-red:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+  opacity: 0.95;
+}
+
+/* =======================
+   CATÁLOGO
+========================= */
+
+main {
+  max-width: 90%;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+.catalogo-header h2 {
+  font-size: 1.6rem;
+  color: #db2777; /* fucsia vibrante */
+  margin-bottom: 0.25rem;
+}
+
+.catalogo-subtitle {
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.estado-carga {
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+/* =======================
+   FILTROS LINDOS
+========================= */
+
+.filtros {
+  margin: 1.5rem 0 1.75rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  background: radial-gradient(circle at 0% 0%, #fb4c9b,#6326c0,#fb4c9b);
+  box-shadow: 0 8px 22px rgba(76, 29, 149, 0.35);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  align-items: center;
+  justify-content: center;
+  color: #fef9ff;
+}
+
+.filtro-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.95rem;
+}
+
+.filtro-item label {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+/* Selects redonditos y llamativos */
+.filtro-item select {
+  padding: 0.35rem 1.8rem 0.35rem 0.8rem;
+  min-width: 180px;
+  border-radius: 999px;
+  border: none;
+  background: #fdf2ff;
+  color: #4c1d95;
+  font-size: 0.85rem;
+  font-weight: 500;
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(250, 232, 255, 0.7);
+  appearance: none;             /* quita estilo nativo en la mayoría de navegadores */
+  position: relative;
+}
+
+/* Efecto al pasar el mouse y al enfocar */
+.filtro-item select:hover {
+  box-shadow: 0 0 0 2px #f9a8d4;
+}
+
+.filtro-item select:focus {
+  box-shadow: 0 0 0 2px #f97316;
+}
+
+/* Flechita decorativa del select */
+.filtro-item {
+  position: relative;
+}
+
+.filtro-item::after {
+  content: "▾";
+  position: absolute;
+  right: 10px;
+  top: 20%;
+  transform: translateY(6px);
+  font-size: 1.5rem;
+  color: #a855f7;
+  pointer-events: none;
+}
+
+/* Responsive: en pantallas pequeñas que se vea como tarjeta en columna */
+@media (max-width: 640px) {
+  .filtros {
+    border-radius: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filtro-item select {
+    width: 100%;
+  }
+
+  .filtro-item::after {
+    right: 16px;
+  }
+}
+
+/* =======================
+   TARJETAS DE PRODUCTO
+========================= */
+
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card-producto {
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 4px 24px rgba(50, 17, 98, 0.15); /* sombra morada */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(76, 29, 149, 0.25);
+}
+
+/* Imagen visible completa */
+.card-producto img {
+  width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  border-radius: 0.8rem;
+  background: #faf5ff;
+  border: 2px solid #e9d5ff;
+}
+
+/* TEXTO DE PRODUCTO */
+.card-producto h3 {
+  margin-top: 0.7rem;
+  font-size: 1.1rem;
+  color: #1f1d1e; /* fucsia fuerte */
+}
+
+.descripcion {
+  color: #4b5563;
+  margin-top: 0.4rem;
+  min-height: 2.5rem;
+}
+
+.precio {
+  margin-top: 0.6rem;
+  font-weight: bold;
+  color: #7c3aed; /* morado vivo */
+}
+
+.categoria {
+  font-size: 0.85rem;
+  margin: 0.2rem 0 1rem;
+  color: #51247aba; /* morado medio */
+}
+
+/* =======================
+   BOTÓN WHATSAPP
+========================= */
+
+.btn-whatsapp {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-weight: bolder;
+  padding: 0.6rem 1rem;
+  background: #10b981;  /* verde WhatsApp (estándar) */
+  color: white;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-whatsapp:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.35);
+}
+
+/* Icono del botón */
+.btn-whatsapp .icon {
+  width: 20px;
+  height: 20px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+/* =======================
+   FOOTER
+========================= */
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+
+/* Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .header-bisu {
+        padding: 1rem;
+    }
+
+    .header-inner {
+        flex-direction: column; 
+        text-align: center;
+        gap: 15px; /* Espacio entre los elementos apilados */
+        max-width: 95%; /* Ocupar casi todo el ancho disponible */
+    }
+
+    .logo-gato {
+        width: 100px; /* Reducir tamaño del logo */
+        margin: 0; /* Eliminar margen derecho de escritorio */
+    }
+
+    /* Contenedor del texto - Asegura centrado y crecimiento nulo */
+    .header-texto {
+        flex-grow: 0; 
+        text-align: center;
+    }
+
+    .header-bisu h1 {
+        font-size: 1.6rem; /* Reducir tamaño del título */
+    }
+
+    .header-bisu p {
+        font-size: 0.9rem;
+    }
+    
+    /* Redes Sociales - Deben quedar centradas en la columna */
+    .redes-sociales {
+        margin-left: 0; /* Eliminar el auto-margen que las empujaba a la derecha */
+        justify-content: center; /* Centrar los iconos horizontalmente */
+    }
+
+    .icon-red {
+        width: 40px; /* Iconos más pequeños */
+        height: 40px;
+        gap: 10px;
+    }
+    
+    .icon-red img {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* --- AJUSTES GENERALES --- */
+    main {
+        padding: 0 0.5rem;
+    }
+    
+    .grid-productos {
+        grid-template-columns: 1fr;
+    }
+}
