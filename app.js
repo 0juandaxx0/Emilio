@@ -81,7 +81,7 @@ const descEl = document.createElement("p");
  btn.href = crearUrlWhatsapp(prod.Nombre);
  btn.target = "_blank";
  btn.innerHTML =
- '<span class="icon"><i class="fa-brands fa-whatsapp"></i></span> <span>Pedir por WhatsApp</span>';
+ '<span class="icon"></span> <span>Pedir por WhatsApp</span>';
 
  // Armando la tarjeta
  card.appendChild(img);
@@ -244,4 +244,5 @@ document.addEventListener("DOMContentLoaded", () => {
  if (selectPrecio) {
  selectPrecio.addEventListener("change", aplicarFiltros);
  }
+
 });
