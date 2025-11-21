@@ -174,7 +174,7 @@ const AIRTABLE_TABLE = "Productos";
 const AIRTABLE_URL = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(
  AIRTABLE_TABLE
 )}`;
-const WHATSAPP_NUMBER = "573203167763";
+const WHATSAPP_NUMBER = "573022860386";
 
 function crearUrlWhatsapp(nombreProducto) {
  const mensaje = `Hola, me interesa el producto: ${nombreProducto}. ¿Está disponible?`;
@@ -246,3 +246,4 @@ document.addEventListener("DOMContentLoaded", () => {
  }
 
 });
+
